@@ -3,16 +3,15 @@ package br.ufjf.dcc192;
 import java.util.Date;
 
 public class Evento {
-    String titulo;
-    long codigo;
+    String codigo, titulo;
     double minimo;
     Date data, sorteio;
 
-    public long getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(long codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
