@@ -1,13 +1,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../jspf/cabecalho.jspf" %>
-<p>Tarefas a serem feitas:</p>
-<p><a href="tarefa-nova.html">[Adicionar]</a></p>
+<p>Eventos:</p>
+<p><a href="novoevento.html">[Adicionar]</a></p>
 <table>
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Codigo</th>
             <th>Título</th>
-            <th>Ações</th>
+            <th>Mínimo</th>
+            <th>Data</th>
+            <th>Sorteio</th>
         </tr>
     </thead>
     <tbody>
