@@ -62,10 +62,10 @@ public class EventoDAO {
         }
     }
     
-    void delete(Long id){
+    void delete(Long codigo){
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("DELETE FROM evento WHERE codigo=%d", id));
+            comando.executeUpdate(String.format("DELETE FROM evento WHERE codigo=%d", codigo));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
