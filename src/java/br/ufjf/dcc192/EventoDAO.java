@@ -39,8 +39,11 @@ public class EventoDAO {
             ResultSet resultado = comando.executeQuery("SELECT codigo,titulo from tarefa");
             while (resultado.next()) {
                 Evento evento = new Evento();
-                evento.setCodigo(resultado.getLong("codigo"));
                 evento.setTitulo(resultado.getString("titulo"));
+                evento.setCodigo(resultado.getInt("codigo"));
+                evento.setMinimo(resultado.getDouble("minimo"));
+                evento.setData(resultado.getDate("dataInicio"));
+                evento.setSorteio(resultado.getDate("dataSorteio"));
                 eventos.add(evento);
 
             }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Evento {
     String  titulo;
-    long codigo;
+    int codigo;
     double minimo;
     Date data, sorteio;
 
@@ -12,7 +12,7 @@ public class Evento {
         return codigo;
     }
 
-    public void setCodigo(long codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
