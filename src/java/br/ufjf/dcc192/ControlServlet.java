@@ -24,8 +24,8 @@ public class ControlServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
-        rotas.put("/tarefa-nova.html", "br.ufjf.dcc192.TarefasNewPostCommand");
-        rotas.put("/tarefa-exclui.html", "br.ufjf.dcc192.TarefasDeletePostCommand");
+        rotas.put("/cadastrar.html", "br.ufjf.dcc192.TarefasNewPostCommand");
+        rotas.put("/login.html", "br.ufjf.dcc192.TarefasDeletePostCommand");
         
         String clazzName = rotas.get(request.getServletPath());
         try {
