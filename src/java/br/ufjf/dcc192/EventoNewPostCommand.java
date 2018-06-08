@@ -9,7 +9,7 @@ public class EventoNewPostCommand implements Comando{
         @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String titulo = request.getParameter("titulo");
-        EventoDAO.getInstance().create(titulo);
+        EventoDAO.getInstance().createEvento(titulo);
         response.sendRedirect("eventos.html");
     }
 }

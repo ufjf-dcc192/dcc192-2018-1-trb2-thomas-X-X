@@ -32,11 +32,11 @@ public class EventoDAO {
         }
     }
 
-    public List<Evento> listAll() {
+    public List<Evento> listAllEventos() {
         List<Evento> eventos = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT codigo,titulo from tarefa");
+            ResultSet resultado = comando.executeQuery("SELECT titulo, codigo, minimo, data Inicio, dataSorteio from EVENTO");
             while (resultado.next()) {
                 Evento evento = new Evento();
                 evento.setTitulo(resultado.getString("titulo"));
@@ -49,13 +49,14 @@ public class EventoDAO {
             }
             resultado.close();
             comando.close();
+            
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return eventos;
     }
 
-    void create(String titulo) {
+    void createEvento(String titulo) {
         try {
             Statement comando = conexao.createStatement();
             comando.executeUpdate(String.format("INSERT INTO evento(titulo) VALUES('%s')", titulo));
@@ -65,7 +66,7 @@ public class EventoDAO {
         }
     }
     
-    void delete(Long codigo){
+    void deleteEvento(int codigo){
         try {
             Statement comando = conexao.createStatement();
             comando.executeUpdate(String.format("DELETE FROM evento WHERE codigo=%d", codigo));
@@ -74,5 +75,37 @@ public class EventoDAO {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    void createParticipante(){
+        
+    }
+    
+    void deleteParticipante(){
+        
+    }
+        public List<Participante> listAllParticipantes(){
+            List<Participante> participantes = new ArrayList<>();
+            try {
+            Statement comando = conexao.createStatement();
+            ResultSet resultado = comando.executeQuery("SELECT titulo,codigo,email,senha from EVENTO");
+            while (resultado.next()) {
+                Participante participante = new Participante();
+                
+                participante.setNome(resultado.getString("titulo"));
+                participante.setCodigo(resultado.getInt("codigo"));
+                participante.setEmail(resultado.getString("email"));
+                participante.setSenha(resultado.getString("senha"));
+                
+                participantes.add(participante);
 
+            }
+            resultado.close();
+            comando.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return participantes;
+        }         
+        
 } 

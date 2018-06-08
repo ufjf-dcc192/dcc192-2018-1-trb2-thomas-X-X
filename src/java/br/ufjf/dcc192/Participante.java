@@ -1,13 +1,14 @@
 package br.ufjf.dcc192;
 
 public class Participante {
-    String codigo, nome, email, senha;
+    String nome, email, senha;
+    int codigo;
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 public class EventoDeletePostCommand implements Comando{
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long id = Long.parseLong(request.getParameter("codigo"));
-        EventoDAO.getInstance().delete(id);
+        int codigo = Integer.parseInt(request.getParameter("codigo"));
+        EventoDAO.getInstance().deleteEvento(codigo);
         response.sendRedirect("eventos.html");
     }
 }
