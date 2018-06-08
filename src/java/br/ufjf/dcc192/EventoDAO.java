@@ -25,7 +25,7 @@ public class EventoDAO {
     public EventoDAO() {
         try {
             if (conexao == null) {
-                conexao = DriverManager.getConnection("jdbc:derby://localhost:1527/dcc19220181", "usuario", "senha");
+                conexao = DriverManager.getConnection("jdbc:derby://localhost:1527/dcc192-2018-1-trb2-thomas-X-X", "usuario", "senha");
             }
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);

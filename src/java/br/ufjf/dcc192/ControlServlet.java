@@ -18,16 +18,20 @@ public class ControlServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Map<String, String> rotas = new HashMap<>();        
+        rotas.put("/index.html", "br.ufjf.dcc192.IndexCommand");
+        rotas.put("/eventos.html", "br.ufjf.dcc192.ListarEventosCommand");
+        rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewCommand");
         
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
-        rotas.put("/eventos.html", "br.ufjf.dcc192.CadastroCommand");
-        rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewCommand");
-        rotas.put("/amigo.html", "br.ufjf.dcc192.EventoNewCommand");
-        rotas.put("/inscricao.html", "br.ufjf.dcc192.EventoNewCommand");
+        rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewPostCommand");
+        rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoDeletePostCommand");
+        //rotas.put("/amigo.html", "br.ufjf.dcc192.EventoNewCommand");
+        //rotas.put("/inscricao.html", "br.ufjf.dcc192.EventoNewCommand");
         
         String clazzName = rotas.get(request.getServletPath());
         try {
