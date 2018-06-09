@@ -30,8 +30,8 @@ public class ControlServlet extends HttpServlet {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewPostCommand");
         rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoDeletePostCommand");
-        //rotas.put("/amigo.html", "br.ufjf.dcc192.EventoNewCommand");
-        //rotas.put("/inscricao.html", "br.ufjf.dcc192.EventoNewCommand");
+        //rotas.put("/inscricao.html", "br.ufjf.dcc192.EventoDeletePostCommand");
+
         
         String clazzName = rotas.get(request.getServletPath());
         try {
