@@ -61,18 +61,18 @@ public class EventoDAO {
         return eventos;
     }
 
-    void createEvento(String titulo, double minimo,Date dataInicio, Date dataSorteio) {
+    void createEvento(String titulo, double minimo,Date dataInicio,Date dataSorteio) {
         try {
             
-            String sql = "INSERT INTO EVENTO" + " (titulo, minimo, dataInicio, dataSorteio)" + " VALUES (?,?,?,?)";
+            String sql = "INSERT INTO USUARIO.EVENTO" + " (titulo, minimo, dataInicio, dataSorteio)" + " VALUES (?,?,?,?)";
             PreparedStatement comando = conexao.prepareStatement(sql);
             Date dataIni = dataInicio;
             Date dataSort = dataSorteio;
             Calendar calendario = Calendar.getInstance();
             calendario.setTime(dataIni);
             calendario.setTime(dataSort);   
-            java.sql.Timestamp dataSqlInicio = new java.sql.Timestamp(dataIni.getTime());
-            java.sql.Timestamp dataSqlSorteio = new java.sql.Timestamp(dataSort.getTime());
+            Timestamp dataSqlInicio = new Timestamp(dataIni.getTime());
+            Timestamp dataSqlSorteio = new Timestamp(dataSort.getTime());
             
             comando.clearParameters();          
             comando.setString(1, titulo);
@@ -80,7 +80,7 @@ public class EventoDAO {
             comando.setTimestamp(3, dataSqlInicio);
             comando.setTimestamp(4, dataSqlSorteio);
             
-            comando.executeUpdate();
+            comando.execute();
             comando.close();
             
         } catch (SQLException ex) {
@@ -122,7 +122,7 @@ public class EventoDAO {
             List<Participante> participantes = new ArrayList<>();
             try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT codigo, titulo, email, senha from PARTICIPANTE");
+            ResultSet resultado = comando.executeQuery("SELECT codigo, titulo, email, senha from USUARIO.PARTICIPANTE");
             while (resultado.next()) {
                 Participante participante = new Participante();
                 

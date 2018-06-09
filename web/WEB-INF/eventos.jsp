@@ -10,7 +10,6 @@
             <th>DataInicial</th>
             <th>DataSorteio</th>
             <th>Opções</th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -19,8 +18,9 @@
                 <td>${evento.codigo}</td>
                 <td>${evento.titulo}</td>
                 <td>R$ ${evento.minimo}</td>
-                <td><fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${evento.sorteio}" /></td>
-                <td><fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${evento.data}" /></td>
+                <td>${evento.data}></td>
+                <td>${evento.sorteio}</td>
+
                 <td>
                     <form method="post" action="#">
                         <input type="hidden" name="codigo" value="${evento.codigo}" />

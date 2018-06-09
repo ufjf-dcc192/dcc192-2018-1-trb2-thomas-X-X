@@ -13,6 +13,7 @@ public class EventoNewPostCommand implements Comando{
         @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm");
         String titulo = request.getParameter("titulo");
         Double minimo = Double.parseDouble(request.getParameter("minimo"));
@@ -20,6 +21,7 @@ public class EventoNewPostCommand implements Comando{
         Date dataInicio = (Date)format.parse(request.getParameter("dataInicio"));
         
         EventoDAO.getInstance().createEvento(titulo, minimo, dataInicio,dataSorteio);
+        
         response.sendRedirect("eventos.html");
         }catch(IOException | NumberFormatException | ParseException e){
             
