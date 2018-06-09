@@ -8,15 +8,15 @@
             <th>Codigo</th>
             <th>Título</th>
             <th>Mínimo</th>
-            <th>Data</th>
-            <th>Sorteios</th>
+            <th>DataInicial</th>
+            <th>DataSorteio</th>
             <th>???</th>
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="tarefa" items="${tarefas}">
+        <c:forEach var="evento" items="${eventos}">
             <tr>
-                <td>${tarefa.id}</td>
+                <td>${evento}</td>
                 <td>${tarefa.titulo}</td>
                 <td>
                     <form method="post" action="tarefa-exclui.html">
