@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@include file="../jspf/cabecalho.jspf" %>
-<p>Lista de Eventos</p>
-<table>
+<%@include file="jspf/cabecalho.jspf" %>
+
+<table border="1">
     <thead>
         <tr>
             <th>Codigo</th>
@@ -25,10 +25,13 @@
                         <input type="hidden" name="codigo" value="${evento.codigo}" />
                         <input type="button" value="Excluir"/>
                     </form>
-                    <a href="novoevento.html">Criar Novo Evento</a> <a href="inscricao.html">Inscrever Participante</a>
+
                 </td>
+                <a href="inscricao.html">Inscrever Participante</a>
             </tr>
         </c:forEach>
+            <a href="novoevento.html">Criar Novo Evento</a>
+
     </tbody>
 </table>
-<%@include file="../jspf/rodape.jspf" %>
+<%@include file="jspf/rodape.jspf" %>

@@ -12,7 +12,7 @@ public class EventoNewCommand implements Comando{
 
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/newevento.jsp");
+        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/novoevento.jsp");
         List<Evento> eventos = EventoDAO.getInstance().listAllEventos();
         request.setAttribute("titulo", "Novo Evento");
         dispacher.forward(request, response);

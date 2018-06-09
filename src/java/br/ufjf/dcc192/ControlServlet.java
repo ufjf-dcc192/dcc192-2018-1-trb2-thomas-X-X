@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ControlServlet", urlPatterns = {"/index.html", "/control.html", "/eventos.html", "/novoevento.html", "/inscricao.html", "/amigo.html", "/inscritos.html"})
+@WebServlet(name = "ControlServlet", urlPatterns = {"/index.html", "/eventos.html", "/novoevento.html", "/inscricao.html", "/amigo.html", "/inscritos.html"})
 public class ControlServlet extends HttpServlet {
 
     @Override
@@ -37,7 +37,7 @@ public class ControlServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewPostCommand");
-        rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoDeletePostCommand");
+        //rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoDeletePostCommand");
         //rotas.put("/inscricao.html", "br.ufjf.dcc192.EventoDeletePostCommand");
 
         
