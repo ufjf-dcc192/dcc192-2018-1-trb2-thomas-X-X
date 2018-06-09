@@ -1,7 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../jspf/cabecalho.jspf" %>
-<p>Eventos</p>
-<p><a href="novoevento.html">[Adicionar]</a></p>
+<p>Lista de Eventos</p>
 <table>
     <thead>
         <tr>
