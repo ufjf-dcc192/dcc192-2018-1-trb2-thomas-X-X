@@ -66,7 +66,7 @@ public class EventoDAO {
             String dataAtual = out.format(data);  
             
             Statement comando = conexao.createStatement();
-           // comando.executeUpdate(String.format("INSERT INTO EVENTO(titulo, minimo, dataInicio, dataSorteio) VALUES('" + titulo + "'," + minimo + ", '" + dataInicio + "','" + dataSorteio + "')"));
+            comando.executeUpdate(String.format("INSERT INTO USUARIO.EVENTO(titulo, minimo, dataInicio, dataSorteio) VALUES('" + titulo + "'," + minimo + ", '" + "','" + dataSorteio + "')"));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,7 +76,7 @@ public class EventoDAO {
     void deleteEvento(int codigo){
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("DELETE FROM EVENTO WHERE codigo=%d", codigo));
+            comando.executeUpdate(String.format("DELETE FROM USUARIO.EVENTO WHERE codigo=%d", codigo));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,7 +86,7 @@ public class EventoDAO {
     void createParticipante(int codigo, String nome, String email, String senha ){
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("INSERT INTO PARTICIPANTE(nome, email, senha, codigo) VALUES('%s','%s','%s','%d')", nome, email, senha, codigo));
+            comando.executeUpdate(String.format("INSERT INTO USUARIO.PARTICIPANTE(nome, email, senha, codigo) VALUES('%s','%s','%s','%d')", nome, email, senha, codigo));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,7 +96,7 @@ public class EventoDAO {
     void deleteParticipante(int codigo){
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("DELETE FROM PARTICIPANTE where codigo=%d", codigo));
+            comando.executeUpdate(String.format("DELETE FROM USUARIO.PARTICIPANTE where codigo=%d", codigo));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);

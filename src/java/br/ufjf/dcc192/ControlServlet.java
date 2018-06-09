@@ -22,6 +22,8 @@ public class ControlServlet extends HttpServlet {
         rotas.put("/index.html", "br.ufjf.dcc192.IndexCommand");
         rotas.put("/eventos.html", "br.ufjf.dcc192.ListarEventosCommand");
         rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewCommand");
+        rotas.put("/inscricao.html", "br.ufjf.dcc192.InscricaoNewCommand");
+        rotas.put("/inscritos.html", "br.ufjf.dcc192.ListaInscritosCommand");
         
         String clazzName = rotas.get(request.getServletPath());
         try {
@@ -38,7 +40,8 @@ public class ControlServlet extends HttpServlet {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewPostCommand");
         //rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoDeletePostCommand");
-        //rotas.put("/inscricao.html", "br.ufjf.dcc192.EventoDeletePostCommand");
+        rotas.put("/inscricao.html", "br.ufjf.dcc192.InscricaoNewPostCommand");
+        rotas.put("/amigo.html", "br.ufjf.dcc192.ExibeAmigoCommand");
 
         
         String clazzName = rotas.get(request.getServletPath());
