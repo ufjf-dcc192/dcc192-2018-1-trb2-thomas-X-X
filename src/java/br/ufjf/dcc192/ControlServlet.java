@@ -23,6 +23,14 @@ public class ControlServlet extends HttpServlet {
         rotas.put("/eventos.html", "br.ufjf.dcc192.ListarEventosCommand");
         rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewCommand");
         
+        String clazzName = rotas.get(request.getServletPath());
+        try {
+            Comando comando = (Comando) Class.forName(clazzName).newInstance();
+            comando.exec(request, response);
+        } catch (ClassNotFoundException|IllegalAccessException|InstantiationException ex) {
+            response.sendError(500, "Erro: "+ex);
+            Logger.getLogger(ControlServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
