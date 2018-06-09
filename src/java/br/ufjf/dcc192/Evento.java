@@ -1,12 +1,22 @@
 package br.ufjf.dcc192;
 
 import java.util.Date;
+import java.util.List;
 
 public class Evento {
     String  titulo;
     int codigo;
     double minimo;
     Date data, sorteio;
+    List<Participante> participantes;
+
+    public List<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public void setParticipantes(List<Participante> participantes) {
+        this.participantes = participantes;
+    }
 
     public long getCodigo() {
         return codigo;

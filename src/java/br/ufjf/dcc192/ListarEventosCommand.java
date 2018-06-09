@@ -17,5 +17,4 @@ public class ListarEventosCommand implements Comando {
         request.setAttribute("eventos", eventos);
         dispacher.forward(request, response);
     }
-
 }

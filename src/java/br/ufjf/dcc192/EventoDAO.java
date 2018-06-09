@@ -2,12 +2,14 @@ package br.ufjf.dcc192;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -39,7 +41,7 @@ public class EventoDAO {
         List<Evento> eventos = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT codigo, titulo, minimo, dataInicio, dataSorteio from EVENTO");
+            ResultSet resultado = comando.executeQuery("SELECT codigo, titulo, minimo, dataInicio, dataSorteio from USUARIO.EVENTO");
             while (resultado.next()) {
                 Evento evento = new Evento();
                 evento.setTitulo(resultado.getString("titulo"));
@@ -59,15 +61,28 @@ public class EventoDAO {
         return eventos;
     }
 
-    void createEvento(String titulo, double minimo, String dataSorteio) {
+    void createEvento(String titulo, double minimo,Date dataInicio, Date dataSorteio) {
         try {
-            Date data = new Date();
-            SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
-            String dataAtual = out.format(data);  
             
-            Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("INSERT INTO USUARIO.EVENTO(titulo, minimo, dataInicio, dataSorteio) VALUES('" + titulo + "'," + minimo + ", '" + "','" + dataSorteio + "')"));
+            String sql = "INSERT INTO EVENTO" + " (titulo, minimo, dataInicio, dataSorteio)" + " VALUES (?,?,?,?)";
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            Date dataIni = dataInicio;
+            Date dataSort = dataSorteio;
+            Calendar calendario = Calendar.getInstance();
+            calendario.setTime(dataIni);
+            calendario.setTime(dataSort);   
+            java.sql.Timestamp dataSqlInicio = new java.sql.Timestamp(dataIni.getTime());
+            java.sql.Timestamp dataSqlSorteio = new java.sql.Timestamp(dataSort.getTime());
+            
+            comando.clearParameters();          
+            comando.setString(1, titulo);
+            comando.setDouble(2, minimo);
+            comando.setTimestamp(3, dataSqlInicio);
+            comando.setTimestamp(4, dataSqlSorteio);
+            
+            comando.executeUpdate();
             comando.close();
+            
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
