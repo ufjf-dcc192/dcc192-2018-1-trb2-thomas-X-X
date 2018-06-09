@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,10 +59,14 @@ public class EventoDAO {
         return eventos;
     }
 
-    void createEvento(String titulo, double minimo, Timestamp dataInicio, Timestamp dataSorteio) {
+    void createEvento(String titulo, double minimo, String dataSorteio) {
         try {
+            Date data = new Date();
+            SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
+            String dataAtual = out.format(data);  
+            
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("INSERT INTO EVENTO(titulo, minimo, dataInicio, dataSorteio) VALUES('" + titulo + "'," + minimo + ", '" + dataInicio + "','" + dataSorteio + "')"));
+           // comando.executeUpdate(String.format("INSERT INTO EVENTO(titulo, minimo, dataInicio, dataSorteio) VALUES('" + titulo + "'," + minimo + ", '" + dataInicio + "','" + dataSorteio + "')"));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventoDAO.class.getName()).log(Level.SEVERE, null, ex);
