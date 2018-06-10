@@ -8,6 +8,15 @@ public class Evento {
     int codigo;
     double minimo;
     Date data, sorteio;
+    boolean sorteado = false;
+
+    public boolean isSorteado() {
+        return sorteado;
+    }
+
+    public void setSorteado(boolean sorteado) {
+        this.sorteado = true;
+    }
     List<Participante> participantes;
 
     public List<Participante> getParticipantes() {

@@ -20,17 +20,31 @@
                 <td>R$ ${evento.minimo}</td>
                 <td>${evento.data}></td>
                 <td>${evento.sorteio}</td>
-
+                
+                <c:if test="${evento.isSorteado()}">
                 <td>
-                    <form method="post" action="#">
+                    <form method="get" action="inscricao.html">
                         <input type="hidden" name="codigo" value="${evento.codigo}" />
-                        <input type="button" value="Excluir"/>
+                        <input type="hidden" name="codigoParticipante" value="${codigoParticipante}" />
+                        <input type="submit" value="Inscrever"/>
                     </form>                                        
+                </td>  
+                </c:if>
+                
+                <c:if test="${!evento.isSorteado()}">
+                <td>
+                    <form method="get" action="inscritos.html">
+                        <input type="hidden" name="codigo" value="${evento.codigo}">
+                        <input type="hidden" name="codigoParticipante" value="${codigoParticipante}">                      
+                        <input type="submit" value="Sorteio"/>
+                    </form>            
                 </td>
+                </c:if>
+
             </tr>
         </c:forEach>
-
-        <input type="submit" value="Novo Evento" href="novoevento.html"</>
+            
     </tbody>
 </table>
+<a href="novoevento.html">Novo Evento</a>
 <%@include file="jspf/rodape.jspf" %>
