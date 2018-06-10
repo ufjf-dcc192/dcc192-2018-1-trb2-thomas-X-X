@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ControlServlet", urlPatterns = {"/index.html", "/eventos.html", "/novoevento.html", "/inscricao.html", "/amigo.html", "/inscritos.html", "cadastrar.html"})
+@WebServlet(name = "ControlServlet", urlPatterns = {"/index.html", "/control", "/eventos.html", "/novoevento.html", "/inscricao.html", "/amigo.html", "/inscritos.html", "/cadastrar.html"})
 public class ControlServlet extends HttpServlet {
 
     @Override
