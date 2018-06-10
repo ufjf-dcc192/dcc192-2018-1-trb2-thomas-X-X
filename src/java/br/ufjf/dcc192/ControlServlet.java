@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ControlServlet", urlPatterns = {"/index.html", "/eventos.html", "/novoevento.html", "/inscricao.html", "/amigo.html", "/inscritos.html"})
+@WebServlet(name = "ControlServlet", urlPatterns = {"/index.html", "/eventos.html", "/novoevento.html", "/inscricao.html", "/amigo.html", "/inscritos.html", "cadastrar.html"})
 public class ControlServlet extends HttpServlet {
 
     @Override
@@ -23,7 +23,7 @@ public class ControlServlet extends HttpServlet {
         rotas.put("/eventos.html", "br.ufjf.dcc192.ListarEventosCommand");
         rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoNewCommand");
         rotas.put("/inscricao.html", "br.ufjf.dcc192.InscricaoNewCommand");
-        rotas.put("/inscritos.html", "br.ufjf.dcc192.ListaInscritosCommand");
+        rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastroCommand");
         
         String clazzName = rotas.get(request.getServletPath());
         try {
@@ -42,6 +42,7 @@ public class ControlServlet extends HttpServlet {
         //rotas.put("/novoevento.html", "br.ufjf.dcc192.EventoDeletePostCommand");
         rotas.put("/inscricao.html", "br.ufjf.dcc192.InscricaoNewPostCommand");
         rotas.put("/amigo.html", "br.ufjf.dcc192.ExibeAmigoCommand");
+        rotas.put("/cadastrar.html", "br.ufjf.dcc192.CadastroPostCommand");
 
         
         String clazzName = rotas.get(request.getServletPath());
